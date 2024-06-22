@@ -1,0 +1,13 @@
+<div>
+  <h2>Formulario de Ubicación</h2>
+  <form>
+    <div class="form-producto">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" [(ngModel)]="ubicacion.Nombre" name="nombre" placeholder="Nombre">
+    </div>
+    <div class="form-buttons">
+      <button type="submit" class="btn" (click)="limpiarCampos()">Limpiar</button>
+      <button type="submit" class="btn" (click)="ingresarUbicacion()">Ingresar</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,68 @@
+/* Estilos para el contenedor principal */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f0f6fc; /* Color de fondo azul claro */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el título del formulario */
+.container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1a237e; /* Azul oscuro para el título */
+}
+
+/* Estilos para los campos del formulario */
+.form-producto {
+  margin-bottom: 15px;
+}
+
+.form-producto label {
+  display: block;
+  margin-bottom: 5px;
+  color: #1a237e; /* Azul oscuro para las etiquetas */
+}
+
+.form-producto input[type="text"],
+.form-producto input[type="email"],
+.form-producto input[type="tel"],
+.form-producto input[type="number"],
+.form-producto input[type="date"] {
+  width: calc(100% - 20px); /* Ancho ajustado para los inputs */
+  padding: 8px 10px;
+  border: 1px solid #90caf9; /* Borde azul claro */
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilos para los botones del formulario */
+.form-buttons {
+  margin-top: 20px;
+}
+
+.form-buttons .btn {
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-buttons .btn:first-child {
+  background-color: #f44336; /* Rojo para botón Limpiar */
+  color: white;
+}
+
+.form-buttons .btn:last-child {
+  background-color: #1976d2; /* Azul para botón Ingresar */
+  color: white;
+}
+
+.form-buttons .btn:hover {
+  opacity: 0.9;
+}

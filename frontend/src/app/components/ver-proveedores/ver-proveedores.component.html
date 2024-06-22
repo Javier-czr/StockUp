@@ -1,0 +1,72 @@
+<div class="container">
+  <h2>Proveedores Ingresados</h2>
+  <input type="text" id="buscar" placeholder="Buscar...">
+  <table>
+    <thead>
+      <tr>
+        <th>Rut</th>
+        <th>Empresa</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let proveedor of proveedores | paginate: { itemsPerPage: pageSize, currentPage: page }">
+        <td>{{ proveedor.RutProveedor }}</td>
+        <td>{{ proveedor.Empresa }}</td>
+        <td>{{ proveedor.Nombre }}</td>
+        <td>{{ proveedor.Apellido }}</td>
+        <td>{{ proveedor.Telefono }}</td>
+        <td>{{ proveedor.Correo }}</td>
+        <td>
+          <button type="button" class="btn actualizar-btn" (click)="abrirModal(proveedor)">Actualizar</button>
+          <button type="button" class="btn eliminar-btn" (click)="eliminarProveedor(proveedor.RutProveedor)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+
+<!-- Modal -->
+<div id="modalActualizar" class="modal" [ngClass]="{'show': mostrarModal}" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Actualizar Proveedor</h5>
+        <button type="button" class="close" (click)="cerrarModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="enviarActualizacion()" class="modal-form">
+          <div class="form-group">
+            <label for="Empresa">Empresa</label>
+            <input type="text" [(ngModel)]="proveedorSeleccionado.Empresa" name="Empresa" required>
+          </div>
+          <div class="form-group">
+            <label for="Nombre">Nombre</label>
+            <input type="text" [(ngModel)]="proveedorSeleccionado.Nombre" name="Nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="Apellido">Apellido</label>
+            <input type="text" [(ngModel)]="proveedorSeleccionado.Apellido" name="Apellido" required>
+          </div>
+          <div class="form-group">
+            <label for="Telefono">Teléfono</label>
+            <input type="text" [(ngModel)]="proveedorSeleccionado.Telefono" name="Telefono" required>
+          </div>
+          <div class="form-group">
+            <label for="Correo">Correo</label>
+            <input type="email" [(ngModel)]="proveedorSeleccionado.Correo" name="Correo" required>
+          </div>
+          <div class="form-buttons">
+            <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

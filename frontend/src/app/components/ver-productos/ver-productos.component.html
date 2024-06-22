@@ -1,0 +1,85 @@
+<!-- Container principal -->
+<div class="container">
+  <h2>Productos Ingresados</h2>
+  <input type="text" id="buscar" placeholder="Buscar...">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Marca</th>
+        <th>Categoría</th>
+        <th>Cantidad</th>
+        <th>Fecha Vencimiento</th>
+        <th>Precio</th>
+        <th>Ubicación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of Producto | paginate: { itemsPerPage: pageSize, currentPage: page }">
+        <td>{{ producto.IdProducto }}</td>
+        <td>{{ producto.Nombre }}</td>
+        <td>{{ producto.Marca }}</td>
+        <td>{{ producto.IdCategoria }}</td>
+        <td>{{ producto.Cantidad }}</td>
+        <td>{{ producto.FechaVencimiento }}</td>
+        <td>{{ producto.Precio }}</td>
+        <td>{{ producto.IdUbicacion }}</td>
+        <td>
+          <button type="button" class="btn actualizar-btn" (click)="openModalProducto(producto)">Actualizar</button>
+          <button type="button" class="btn eliminar-btn" (click)="eliminarProducto(producto.IdProducto)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+
+<!-- Modal para actualizar producto -->
+<div id="modalActualizarProducto" class="modal" [ngClass]="{'show': modalSwitchProducto}" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Actualizar Producto</h5>
+        <button type="button" class="close" (click)="closeModalProducto()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="actualizarProducto()" class="modal-form">
+          <div class="form-group">
+            <label for="Nombre">Nombre</label>
+            <input type="text" class="form-control" [(ngModel)]="productoSeleccionado.Nombre" name="Nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="Marca">Marca</label>
+            <input type="text" class="form-control" [(ngModel)]="productoSeleccionado.Marca" name="Marca" required>
+          </div>
+          <div class="form-group">
+            <label for="IdCategoria">Categoría</label>
+            <input type="text" class="form-control" [(ngModel)]="productoSeleccionado.IdCategoria" name="IdCategoria" required>
+          </div>
+          <div class="form-group">
+            <label for="Cantidad">Cantidad</label>
+            <input type="number" class="form-control" [(ngModel)]="productoSeleccionado.Cantidad" name="Cantidad" required>
+          </div>
+          <div class="form-group">
+            <label for="FechaVencimiento">Fecha Vencimiento</label>
+            <input type="date" class="form-control" [(ngModel)]="productoSeleccionado.FechaVencimiento" name="FechaVencimiento" required>
+          </div>
+          <div class="form-group">
+            <label for="Precio">Precio</label>
+            <input type="number" class="form-control" [(ngModel)]="productoSeleccionado.Precio" name="Precio" required>
+          </div>
+          <div class="form-group">
+            <label for="IdUbicacion">Ubicación</label>
+            <input type="text" class="form-control" [(ngModel)]="productoSeleccionado.IdUbicacion" name="IdUbicacion" required>
+          </div>
+          <div class="form-buttons">
+            <button type="button" class="btn btn-secondary" (click)="closeModalProducto()">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

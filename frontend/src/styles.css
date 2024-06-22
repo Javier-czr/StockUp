@@ -1,0 +1,67 @@
+/* Estilos generales */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+  
+  /* Estilos específicos para cada sección */
+  
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+  
+aside {
+  background-color: #f2f2f2;
+  width: 200px;
+  float: left;
+  padding: 10px;
+}
+  
+section {
+  float: left;
+  width: calc(100% - 240px); /* El ancho total menos el ancho del aside */
+  padding: 10px;
+}
+  
+article {
+  margin-bottom: 20px;
+}
+  
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  clear: both; /* Limpiar los flotadores */
+}
+
+header nav {
+  background-color: #333; /* Mismo color que el encabezado */
+}
+  
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+  
+header nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+  
+header nav ul li a {
+  color: #fff; /* Color del texto */
+  text-decoration: none; /* Quitar subrayado */
+  padding: 10px; /* Espacio alrededor del texto */
+}
+  
+header nav ul li a:hover {
+  background-color: #555; /* Color de fondo al pasar el ratón */
+}
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

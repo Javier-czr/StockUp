@@ -1,0 +1,80 @@
+/* Estilos para el contenedor principal */
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f6fc; /* Color de fondo azul claro */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el título */
+.container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #1a237e; /* Azul oscuro para el título */
+}
+
+/* Estilos para el campo de búsqueda */
+#buscar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #90caf9; /* Borde azul claro */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Estilos para las filas pares e impares */
+tbody tr:nth-child(even) {
+    background-color: #ffffff; /* Fondo blanco para filas pares */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f0f6fc; /* Fondo azul claro para filas impares */
+}
+
+/* Estilos para los controles de paginación */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-controls .ngx-pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination-controls .ngx-pagination li {
+    margin: 0 5px;
+}
+
+.pagination-controls .ngx-pagination a {
+    padding: 8px 12px;
+    color: #1a237e; /* Azul oscuro para los enlaces */
+    border: 1px solid #90caf9; /* Borde azul claro */
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.pagination-controls .ngx-pagination .current a {
+    background-color: #90caf9; /* Fondo azul claro para la página actual */
+    color: white;
+    border-color: #1a237e; /* Borde azul oscuro */
+}

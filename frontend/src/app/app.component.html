@@ -1,0 +1,105 @@
+<header *ngIf="isLoggedIn()">
+  <nav>
+    <ul>
+      <li><a (click)="mostrarSeccion('productos')">Productos</a></li>
+      <li><a (click)="mostrarSeccion('proveedores')">Proveedor</a></li>
+      <li><a (click)="mostrarSeccion('notificacion')">Notificacion</a></li>
+      <li><a (click)="mostrarSeccion('historial')">Historial</a></li>
+      <li><a (click)="mostrarSeccion('registro')">Registro</a></li>
+      <li><a (click)="authService.logout();">Salir</a></li>
+    </ul>
+  </nav>
+</header>
+    
+<div class="container" *ngIf="isLoggedIn(); else loginTemplate">
+  <aside>
+    <div *ngIf="mostrarOpcionesProductos">
+      <h1>Productos</h1>
+      <ul>
+        <li><button class="custom-button" (click)="mostrarFunciones('verProductos')">Lista Productos</button></li>
+        <li><button class="custom-button" (click)="mostrarFunciones('ingresarProductos')">Ingresar Producto</button></li>
+        <li><button class="custom-button" (click)="mostrarFunciones('ingresarProductosDanados')">Productos Dañados</button></li>
+      </ul>
+    </div>
+    <div *ngIf="mostrarOpcionesProveedores">
+      <h1>Proveedores</h1>
+      <ul>
+        <li><button class="custom-button" (click)="mostrarFunciones('verProveedores')">Lista Proveedores</button></li>
+        <li><button class="custom-button" (click)="mostrarFunciones('ingresarProveedores')">Ingresar Proveedor</button></li>
+        <li><button class="custom-button" (click)="mostrarFunciones('crearPedido')">Pedidos</button></li>
+      </ul>
+    </div>
+    <div *ngIf="mostrarOpcionesNotificacion">
+      <h1>Notificaciones</h1>
+      <ul>
+        <li><button class="custom-button" (click)="mostrarFunciones('verNotificaciones')">Lista Notificaciones</button></li>
+      </ul>
+    </div>
+    <div *ngIf="mostrarOpcionesHistorial">
+      <h1>Historial</h1>
+      <ul>
+        <li><button class="custom-button" (click)="mostrarFunciones('verHistorialPedidos')">Historial de pedidos</button></li>
+        <li><button class="custom-button" (click)="mostrarFunciones('verHistorialCambios')">Historial de cambios</button></li>
+      </ul>
+    </div>
+    <div *ngIf="mostrarOpcionesRegistro">
+      <h1>Registro</h1>
+      <ul>
+        <li><button class="custom-button" (click)="mostrarFunciones('registrarUsuario')">Registrarse</button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <section>
+    <div *ngIf="verListaProductos">
+      <app-ver-productos></app-ver-productos>
+    </div>
+
+    <div *ngIf="ingresarProductos">
+      <app-ingresar-producto></app-ingresar-producto>
+    </div>
+
+    <div *ngIf="ingresarProductosDanados">
+      <app-ingresar-danados></app-ingresar-danados>
+    </div>
+
+    <div *ngIf="ingresarProveedores">
+      <app-ingresar-proveedor></app-ingresar-proveedor>
+    </div>
+
+    <div *ngIf="verListaProveedores">
+      <app-ver-proveedores></app-ver-proveedores>
+    </div>
+
+    <div *ngIf="crearPedido">
+      <app-realizar-pedidos></app-realizar-pedidos>
+    </div>
+
+    <div *ngIf="verNotificaciones">
+      <app-lista-notificaciones></app-lista-notificaciones>
+    </div>
+
+    <div *ngIf="verHistorialPedidos">
+      <app-historial-pedidos></app-historial-pedidos>
+    </div>
+
+    <div *ngIf="verHistorialCambios">
+      <app-historial-cambios></app-historial-cambios>
+    </div>
+
+    <div *ngIf="registrarUsuario">
+      <app-registrarse></app-registrarse>
+    </div>
+  </section>
+</div>
+
+<ng-template #loginTemplate>
+  <app-login></app-login>
+</ng-template>
+
+<ng-template #registroTemplate>
+  <app-registrarse></app-registrarse> <!-- Nuevo -->
+</ng-template>
+
+<footer *ngIf="isLoggedIn()">
+</footer>

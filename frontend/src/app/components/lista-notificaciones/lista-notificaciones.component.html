@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Notificaciones</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID Notificación</th>
+        <th>Fecha de Notificación</th>
+        <th>Descripción Notificación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let notificacion of notificaciones | paginate: { itemsPerPage: pageSize, currentPage: page }">
+        <td>{{ notificacion.IdNotificacion }}</td>
+        <td>{{ notificacion.FechaNotificacion }}</td>
+        <td>{{ notificacion.DescripcionNotificacion }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>

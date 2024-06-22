@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Historial de Cambios</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID Cambio</th>
+        <th>Fecha de Cambio</th>
+        <th>Descripción del Cambio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cambio of cambios | paginate: { itemsPerPage: pageSize, currentPage: page }">
+        <td>{{ cambio.IdCambio }}</td>
+        <td>{{ cambio.fechaCambio }}</td>
+        <td>{{ cambio.DescripcionCambio }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>

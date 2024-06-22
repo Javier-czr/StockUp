@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Productos Danados</h2>
+    <input type="text" id="buscar" placeholder="Buscar...">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          <th>Costo</th>
+          <th>Comentario</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let productosDanados of productosDanados">
+          <td>{{ productosDanados.id }}</td>
+          <td>{{ productosDanados.nombre }}</td>
+          <td>{{ productosDanados.cantidad }}</td>
+          <td>{{ productosDanados.costo }}</td>
+          <td>{{ productosDanados.comentario }}</td>
+          <td>
+            <button type="button" class="btn actualizar-btn">Actualizar</button>
+            <button type="button" class="btn eliminar-btn">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn ingresar-dañados-btn">Ingresar Productos Dañados</button>
+  </div>
+  

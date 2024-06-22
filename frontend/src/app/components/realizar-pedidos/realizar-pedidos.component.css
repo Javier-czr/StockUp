@@ -1,0 +1,73 @@
+.container {
+  padding: 20px;
+  background-color: #fff;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.form-producto {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.form-producto label {
+  flex: 1;
+}
+
+.form-producto input,
+.form-producto select {
+  flex: 2;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

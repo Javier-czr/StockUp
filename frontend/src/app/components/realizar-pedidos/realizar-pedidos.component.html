@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Ingresar Pedido</h2>
+  <div class="form-producto">
+    <label for="producto">Producto:</label>
+    <input type="text" id="producto">
+  </div>
+  <div class="form-producto">
+    <label for="cantidad">Cantidad Empaque:</label>
+    <input type="number" id="cantidad">
+  </div>
+  <div class="form-producto">
+    <label for="unidades">Unidades por Empaque:</label>
+    <input type="number" id="unidades">
+  </div>
+  
+  <button class="btn" (click)="agregarProducto()">Ingresar</button>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad Empaque</th>
+        <th>Unidades por Empaque</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td>sd</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <button class="btn" (click)="enviarProductos()">Enviar</button>
+</div>

@@ -1,0 +1,183 @@
+/* Estilos para el contenedor principal */
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f0f6fc; /* Color de fondo azul claro */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el título */
+.container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1a237e; /* Azul oscuro para el título */
+}
+
+/* Estilos para el campo de búsqueda */
+#buscar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #90caf9; /* Borde azul claro */
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Estilos para las filas pares e impares */
+tbody tr:nth-child(even) {
+  background-color: #ffffff; /* Fondo blanco para filas pares */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f0f6fc; /* Fondo azul claro para filas impares */
+}
+
+/* Estilos para las acciones (botones) */
+.btn {
+  padding: 8px 12px;
+  margin-right: 5px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actualizar-btn {
+  background-color: #1976d2; /* Azul para botón actualizar */
+  color: white;
+}
+
+.actualizar-btn:hover {
+  background-color: #1565c0; /* Azul más oscuro en hover */
+}
+
+.eliminar-btn {
+  background-color: #f44336; /* Rojo para botón eliminar */
+  color: white;
+}
+
+.eliminar-btn:hover {
+  background-color: #d32f2f; /* Rojo más oscuro en hover */
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-dialog {
+  width: 80%;
+  max-width: 600px; /* Máximo ancho del modal */
+}
+
+.modal-content {
+  background-color: #f0f6fc; /* Color de fondo azul claro */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  background-color: #ffffff; /* Color de fondo blanco */
+}
+
+.modal-title {
+  font-size: 24px;
+  color: #1a237e; /* Color azul oscuro para el título */
+}
+
+.modal-body {
+  padding: 1rem;
+}
+
+.close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Estilos para los campos del formulario dentro del modal */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #1565c0; /* Color azul para las etiquetas */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #90caf9; /* Borde azul claro para los campos de entrada */
+  border-radius: 4px;
+  box-sizing: border-box; /* Para incluir el padding en el ancho total */
+}
+
+/* Estilos para los botones del formulario */
+.form-buttons {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn.btn-primary {
+  background-color: #1976d2; /* Color de fondo azul para el botón primario */
+  color: white;
+}
+
+.btn.btn-secondary {
+  background-color: #f44336; /* Color de fondo rojo para el botón secundario */
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}

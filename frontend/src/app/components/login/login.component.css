@@ -1,0 +1,162 @@
+/* Estilos para el contenedor principal */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto; /* Esto centra horizontalmente */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f0f6fc; /* Color de fondo azul claro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    /* Centrado vertical y horizontal */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Estilos para el título del formulario */
+  .login-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #1a237e; /* Color azul oscuro para el título */
+  }
+  
+  /* Estilos para el formulario */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilos para los campos del formulario */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #1565c0; /* Color azul para las etiquetas */
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #90caf9; /* Borde azul claro para los campos de entrada */
+    border-radius: 4px;
+    box-sizing: border-box; /* Para incluir el padding en el ancho total */
+  }
+  
+  /* Estilos para el botón */
+  .btn {
+    background-color: #1976d2; /* Color de fondo azul */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #1565c0; /* Color de fondo azul más oscuro en hover */
+  }
+  
+  .btn:active {
+    background-color: #0d47a1; /* Color de fondo azul aún más oscuro en active */
+  }
+  
+  /* Estilos adicionales */
+  @media (max-width: 600px) {
+    .login-container {
+      width: 100%;
+      margin: 10px;
+    }
+  }
+
+  /* Estilos para el contenedor principal */
+.modal-container {
+  max-width: 400px;
+  margin: 0 auto; /* Esto centra horizontalmente */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f0f6fc; /* Color de fondo azul claro */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  /* Centrado vertical y horizontal */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilos para el título del formulario */
+.modal-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1a237e; /* Color azul oscuro para el título */
+}
+
+/* Estilos para el formulario */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para los campos del formulario */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #1565c0; /* Color azul para las etiquetas */
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #90caf9; /* Borde azul claro para los campos de entrada */
+  border-radius: 4px;
+  box-sizing: border-box; /* Para incluir el padding en el ancho total */
+}
+
+/* Estilos para el botón */
+.btn {
+  background-color: #1976d2; /* Color de fondo azul */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #1565c0; /* Color de fondo azul más oscuro en hover */
+}
+
+.btn:active {
+  background-color: #0d47a1; /* Color de fondo azul aún más oscuro en active */
+}
+
+/* Estilos adicionales */
+@media (max-width: 600px) {
+  .modal-container {
+    width: 100%;
+    margin: 10px;
+  }
+}
+  
