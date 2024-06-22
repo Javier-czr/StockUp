@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProducto } from '../../interfaces/i-producto'; 
+import { IProducto } from '../../interfaces/i-producto';
 import { ProductoService } from '../../services/producto.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -11,15 +11,17 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, NgxPaginationModule, FormsModule],
   templateUrl: './ver-productos.component.html',
-  styleUrl: './ver-productos.component.css'
+  styleUrls: ['./ver-productos.component.css']
 })
 export class VerProductosComponent implements OnInit {
 
-  modalSwitchProducto: boolean;
-  productoSeleccionado: IProducto;
-  Producto: IProducto[] = [];
+  productos: IProducto[] = [];
+  productosFiltrados: IProducto[] = [];
   page: number = 1;
   pageSize: number = 15;
+  modalSwitchProducto: boolean = false;
+  productoSeleccionado: IProducto = {} as IProducto;
+  buscarProducto: string = '';
 
   constructor(private productoService: ProductoService, private http: HttpClient) {}
 
@@ -30,8 +32,8 @@ export class VerProductosComponent implements OnInit {
   obtenerProductos() {
     this.productoService.getProductos().subscribe(
       (resp: IProducto[]) => {
-        console.log(resp);
-        this.Producto = resp;
+        this.productos = resp;
+        this.productosFiltrados = resp;
       },
       error => {
         console.error('Error obteniendo productos:', error);
@@ -42,7 +44,8 @@ export class VerProductosComponent implements OnInit {
   eliminarProducto(idProducto: number): void {
     this.productoService.eliminarProducto(idProducto).subscribe(
       () => {
-        this.Producto = this.Producto.filter(producto => producto.IdProducto !== idProducto);
+        this.productos = this.productos.filter(producto => producto.IdProducto !== idProducto);
+        this.filtrarProductos();
       },
       error => {
         console.error('Error eliminando producto:', error);
@@ -62,16 +65,25 @@ export class VerProductosComponent implements OnInit {
   actualizarProducto(): void {
     this.productoService.actualizarProducto(this.productoSeleccionado).subscribe(
       () => {
-        console.log('Producto actualizado correctamente');
         this.closeModalProducto();
-        // Actualizar la lista de productos después de la actualización
-        this.obtenerProductos();
+        this.obtenerProductos(); // Refresca la lista de productos
       },
       error => {
         console.error('Error actualizando producto:', error);
-        // Aquí podrías manejar el error y mostrar un mensaje al usuario
       }
     );
   }
 
+  filtrarProductos(): void {
+    if (this.buscarProducto.trim() !== '') {
+      this.productosFiltrados = this.productos.filter(producto =>
+        producto.Nombre.toLowerCase().includes(this.buscarProducto.toLowerCase()) ||
+        producto.Marca.toLowerCase().includes(this.buscarProducto.toLowerCase()) ||
+        producto.IdCategoria.toString().includes(this.buscarProducto) ||
+        producto.IdProducto.toString().includes(this.buscarProducto)
+      );
+    } else {
+      this.productosFiltrados = [...this.productos];
+    }
+  }
 }

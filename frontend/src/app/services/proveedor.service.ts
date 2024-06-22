@@ -17,8 +17,8 @@ export class ProveedorService {
       .pipe(); // Agregar manejo de errores si es necesario
   }
 
-  getProveedor(id: number): Observable<IProveedor> {
-    const url = `${this.urlAPI}/${id}`;
+  getProveedor(rut: string): Observable<IProveedor> {
+    const url = `${this.urlAPI}/${rut}`;
     return this.http.get<IProveedor>(url)
       .pipe(); // Agregar manejo de errores si es necesario
   }

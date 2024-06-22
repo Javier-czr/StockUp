@@ -18,7 +18,6 @@
       <ul>
         <li><button class="custom-button" (click)="mostrarFunciones('verProductos')">Lista Productos</button></li>
         <li><button class="custom-button" (click)="mostrarFunciones('ingresarProductos')">Ingresar Producto</button></li>
-        <li><button class="custom-button" (click)="mostrarFunciones('ingresarProductosDanados')">Productos Dañados</button></li>
       </ul>
     </div>
     <div *ngIf="mostrarOpcionesProveedores">
@@ -26,7 +25,6 @@
       <ul>
         <li><button class="custom-button" (click)="mostrarFunciones('verProveedores')">Lista Proveedores</button></li>
         <li><button class="custom-button" (click)="mostrarFunciones('ingresarProveedores')">Ingresar Proveedor</button></li>
-        <li><button class="custom-button" (click)="mostrarFunciones('crearPedido')">Pedidos</button></li>
       </ul>
     </div>
     <div *ngIf="mostrarOpcionesNotificacion">
@@ -38,14 +36,13 @@
     <div *ngIf="mostrarOpcionesHistorial">
       <h1>Historial</h1>
       <ul>
-        <li><button class="custom-button" (click)="mostrarFunciones('verHistorialPedidos')">Historial de pedidos</button></li>
         <li><button class="custom-button" (click)="mostrarFunciones('verHistorialCambios')">Historial de cambios</button></li>
       </ul>
     </div>
     <div *ngIf="mostrarOpcionesRegistro">
-      <h1>Registro</h1>
+      <h1>Usuarios</h1>
       <ul>
-        <li><button class="custom-button" (click)="mostrarFunciones('registrarUsuario')">Registrarse</button></li>
+        <li><button class="custom-button" (click)="mostrarFunciones('registrarUsuario')">Registrar Usuario</button></li>
       </ul>
     </div>
   </aside>

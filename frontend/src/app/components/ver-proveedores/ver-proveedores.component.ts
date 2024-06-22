@@ -20,6 +20,7 @@ export class VerProveedoresComponent implements OnInit {
   pageSize: number = 15;
   mostrarModal: boolean = false;
   proveedorSeleccionado: IProveedor = {} as IProveedor;
+  rutBuscar: string = '';
   
   constructor(private proveedorService: ProveedorService, private http: HttpClient) { }
 
@@ -37,6 +38,22 @@ export class VerProveedoresComponent implements OnInit {
         console.error('Error al obtener proveedores', error);
       }
     );
+  }
+
+    buscarProveedor() {
+    if (this.rutBuscar.trim() !== '') {
+      this.proveedorService.getProveedor(this.rutBuscar).subscribe(
+        (resp:any) => {
+          this.proveedores = [resp];
+        },
+        (error) => {
+          console.error('Error al buscar proveedor', error);
+          this.proveedores = []; // Limpia la lista si no se encuentra
+        }
+      );
+    } else {
+      this.obtenerProveedores(); // Si el campo de búsqueda está vacío, obtener todos los proveedores
+    }
   }
 
   abrirModal(proveedor: IProveedor): void {

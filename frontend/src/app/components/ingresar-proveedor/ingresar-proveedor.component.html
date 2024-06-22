@@ -26,7 +26,7 @@
         <input type="email" id="correo" [(ngModel)]="proveedores.Correo" name="correo" placeholder="Correo">
       </div>
       <div class="form-buttons">
-        <button type="submit" class="btn">Limpiar</button>
+        <button type="submit" class="btn" (click)="limpiarCampos()">Limpiar</button>
         <button type="submit" class="btn" (click)="ingresarProveedor()">Ingresar</button>
       </div>
     </form>

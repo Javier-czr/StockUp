@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductoService {
-  
+
   private urlAPI: string = 'http://localhost:5000/producto';
 
   constructor(private http: HttpClient) {}
@@ -16,10 +16,10 @@ export class ProductoService {
     return this.http.get<IProducto[]>(this.urlAPI);
   }
 
-  getProducto(id: any): Observable<IProducto> {
+  getProducto(id: number): Observable<IProducto> {
     const url = `${this.urlAPI}/${id}`;
     return this.http.get<IProducto>(url);
-  }   
+  }
 
   postProducto(producto: IProducto): Observable<any> {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
@@ -32,10 +32,8 @@ export class ProductoService {
     return this.http.put<any>(url, producto, {headers});
   }
 
-  eliminarProducto(id: any): Observable<any> {
+  eliminarProducto(id: number): Observable<any> {
     const url = `${this.urlAPI}/${id}`;
     return this.http.delete<any>(url);
   }
-
 }
-

@@ -1,7 +1,7 @@
 <!-- Container principal -->
 <div class="container">
   <h2>Productos Ingresados</h2>
-  <input type="text" id="buscar" placeholder="Buscar...">
+  <input type="text" id="buscar" placeholder="Buscar..." [(ngModel)]="buscarProducto" (input)="filtrarProductos()">
   <table>
     <thead>
       <tr>
@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let producto of Producto | paginate: { itemsPerPage: pageSize, currentPage: page }">
+      <tr *ngFor="let producto of productosFiltrados | paginate: { itemsPerPage: pageSize, currentPage: page }">
         <td>{{ producto.IdProducto }}</td>
         <td>{{ producto.Nombre }}</td>
         <td>{{ producto.Marca }}</td>

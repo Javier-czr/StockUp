@@ -27,8 +27,17 @@ export class IngresarProveedorComponent {
   ingresarProveedor() {
     this.proveedorService.postProveedor(this.proveedores)
       .subscribe(() => {
-          
+        this.limpiarCampos();
       });
+  }
+
+  limpiarCampos() {
+    this.proveedores.RutProveedor = '';
+    this.proveedores.Empresa = '';
+    this.proveedores.Nombre = '';
+    this.proveedores.Apellido = '';
+    this.proveedores.Telefono = 0;
+    this.proveedores.Correo = '';
   }
 
 }

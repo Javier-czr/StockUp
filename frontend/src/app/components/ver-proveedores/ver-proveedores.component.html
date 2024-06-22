@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Proveedores Ingresados</h2>
-  <input type="text" id="buscar" placeholder="Buscar...">
+  <input type="text" id="buscar" placeholder="Buscar por RUT..." [(ngModel)]="rutBuscar" (input)="buscarProveedor()">
   <table>
     <thead>
       <tr>

@@ -20,7 +20,7 @@ Este módulo proporciona una API para gestionar proveedores, categorías, ubicac
 
 app = Flask(__name__)
 CORS(
-    app,
+    app, 
     resources={
         r"/proveedor/*": {"origins": "http://localhost:4200"},
         r"/producto/*": {"origins": "http://localhost:4200"},
@@ -37,9 +37,9 @@ CORS(
 
 conexion = MySQL(app)
 auth = HTTPBasicAuth()
-users = {"root": generate_password_hash(os.getenv("ADMIN_PASSWORD", "stock")),
-         "admin": generate_password_hash(os.getenv("ADMIN_PASSWORD", "12345")),
-         "Javier": generate_password_hash(os.getenv("USER_PASSWORD", "admin"))}
+users = {"admin2": generate_password_hash(os.getenv("ADMIN_PASSWORD", "stock")),
+         "admin": generate_password_hash(os.getenv("ADMIN_PASSWORD", "admin")),
+         "Javier": generate_password_hash(os.getenv("USER_PASSWORD", "12345"))}
 
 
 @auth.verify_password
@@ -82,14 +82,14 @@ def listar_proveedor():
 
 
 @app.route("/proveedor/<RutProveedor>", methods=["GET"])
-def leer_proveedor(rut_proveedor):
+def leer_proveedor(RutProveedor):
     """
     Función para leer un proveedor.
     """
     try:
         cursor = conexion.connection.cursor()
         sql = "SELECT * FROM proveedor WHERE RutProveedor = %s"
-        cursor.execute(sql, (rut_proveedor,))
+        cursor.execute(sql, (RutProveedor,))
         datos_proveedor = cursor.fetchone()
         if datos_proveedor:
             proveedor = {
@@ -101,6 +101,8 @@ def leer_proveedor(rut_proveedor):
                 "Correo": datos_proveedor[5],
             }
             return jsonify(proveedor)
+        else:
+            return jsonify({"Mensaje": "Proveedor no encontrado"}), 404
     except Exception as e:
         app.logger.error("Error: %s", e)
         return jsonify({"Mensaje": "No se pudo realizar la consulta"}), 500
@@ -479,6 +481,7 @@ def leer_producto(IdProducto):
     except Exception as e:
         app.logger.error("Error: %s", e)
         return jsonify({"Mensaje": "No se pudo realizar la consulta", "Error": str(e)}), 500
+
 
 
 @app.route("/producto", methods=["POST"])
